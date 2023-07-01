@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JQuery Library </title>
+
+    <script>
+        // use jQuery libraray and add it to the script
+        $(document).ready( () => { // when DOM is loaded then use this 
+            document.getElementById("mydiv").innerHTML = "Changed on document ready";
+        });
+    </script>
+
+</head>
+
+<body onload="alert('in onload') ">
+
+    <h1> Onload</h1>
+    <div id="mydiv"> Change </div>
+    <!-- <script> document.getElementById("mydiv").innerHTML ="hey"</script> -->
+
+    
+</body>
+</html>

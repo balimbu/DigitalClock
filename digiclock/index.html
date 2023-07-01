@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> React Digital Clock </title>
+
+    <!-- React script -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="myscript.js"></script>
+    <!-- Boostrap5 CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
+</head>
+ 
+<body >
+    <div class="container-fluid col-md-12 text-center border border-dark border border-4 marging = 30px padding = 20px"> 
+        <h1 class ="bg-primary text-light"> Digital Clock </h1> <br>
+
+        <h3 class ="bg-success"> HTML Div with inner HTML </h3>
+        <div id="regularDiv""> Should display Time</div>
+
+        <h3 class ="bg-warning"> React Div Below this </h3>
+        <div id="reactDiv""> Should display Time</div>
+    </div>
+
+<script> 
+
+    // using JS
+    let regularDiv = document.getElementById("regularDiv");
+        // console.log(regularDiv);
+
+    // get or create the root
+    let reactDiv = ReactDOM.createRoot(document.getElementById('reactDiv'));
+
+    // consolidate the whole code in a function
+    let render = () => {
+
+        regularDiv.innerHTML = `<input type = "text"/> <p> Inner HTML ${new Date()} </p>` ; 
+
+        // using React
+        // create the element
+        // let dateElement = React.createElement('p', {}, new Date().toString() ); // new Date always gives the Date Object
+        
+        // div with input and date
+        let dateElement= React.createElement( 'div', {},[ 
+                   React.createElement('input',{}, null ), 
+                   React.createElement('p', {}, new Date().toString() )]
+            ); 
+
+        // render 
+        reactDiv.render(dateElement);
+    }
+
+    setInterval(render, 1000); // arguments taken - ( function to call, duration in milliseconds )
+
+</script>
+
+</body>
+</html>
